@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShahliKey - Лучшие игры по лучшим ценам</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-key logo-icon"></i>
+                    <h1>ShahliKey</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home" class="nav-link active">Главная</a></li>
+                        <li><a href="#catalog" class="nav-link">Каталог</a></li>
+                        <li><a href="#cases" class="nav-link">Кейсы</a></li>
+                        <li><a href="#sales" class="nav-link">Акции</a></li>
+                        <li><a href="#new" class="nav-link">Новинки</a></li>
+                        <li><a href="#account" class="nav-link account-nav" style="display:none;">Кабинет</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="search-bar">
+                        <input type="text" id="searchInput" placeholder="Поиск игр...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="cart-btn" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                    <button class="auth-btn" id="authBtn">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="notification" id="notification"></div>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Лучшие игры по лучшим ценам</h2>
+            <p>Откройте для себя мир увлекательных игр с ShahliKey. Горячие предложения каждый день!</p>
+            <button class="cta-button" id="catalogBtn">Смотреть каталог</button>
+        </div>
+    </section>
+
+    <section class="games-section" id="catalog">
+        <div class="container">
+            <h2 class="section-title">Каталог Игр</h2>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Все</button>
+                <button class="filter-btn" data-filter="RPG">RPG</button>
+                <button class="filter-btn" data-filter="Action">Экшен</button>
+                <button class="filter-btn" data-filter="Shooter">Шутеры</button>
+                <button class="filter-btn" data-filter="Adventure">Приключения</button>
+            </div>
+            <div class="games-grid" id="gamesGrid">
+            </div>
+        </div>
+    </section>
+
+    <section class="cases-section" id="cases">
+        <div class="container">
+            <h2 class="section-title">Игровые кейсы</h2>
+            <p class="section-subtitle">Откройте кейс и получите случайную игру с бонусными очками!</p>
+            <div class="cases-stats">
+                <div class="stat-item">
+                    <i class="fas fa-coins"></i>
+                    <span>Ваши очки: <strong id="userPoints">0</strong></span>
+                </div>
+            </div>
+            <div class="cases-grid" id="casesGrid">
+            </div>
+        </div>
+    </section>
+
+    <section class="games-section" id="sales">
+        <div class="container">
+            <h2 class="section-title">Акции</h2>
+            <div class="games-grid" id="salesGrid">
+            </div>
+        </div>
+    </section>
+
+    <section class="games-section" id="new">
+        <div class="container">
+            <h2 class="section-title">Новинки</h2>
+            <div class="games-grid" id="newGrid">
+            </div>
+        </div>
+    </section>
+
+    <section class="account-section" id="account">
+        <div class="container">
+            <h2 class="section-title">Личный кабинет</h2>
+            <div class="account-content">
+                <div class="account-info">
+                    <h3>Добро пожаловать, <span id="userNameDisplay">Гость</span>!</h3>
+                    <div class="account-stats">
+                        <div class="stat-card">
+                            <h4>Куплено игр</h4>
+                            <p id="gamesBought">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Сумма покупок</h4>
+                            <p id="totalSpent">0 ₽</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Бонусные очки</h4>
+                            <p id="bonusPoints">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Дата регистрации</h4>
+                            <p id="regDate">-</p>
+                        </div>
+                    </div>
+                    <div class="inventory-section">
+                        <h4>Мои игры</h4>
+                        <div class="inventory-grid" id="inventoryGrid">
+                            <p class="empty-inventory">У вас пока нет игр</p>
+                        </div>
+                    </div>
+                    <div class="purchase-history">
+                        <h4>История покупок</h4>
+                        <div class="history-list" id="historyList">
+                            <p class="empty-history">У вас пока нет покупок</p>
+                        </div>
+                    </div>
+                    <button class="logout-btn" id="logoutBtn">Выйти из аккаунта</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ShahliKey</h3>
+                    <p>Лучший магазин игр для настоящих геймеров. Мы предлагаем только качественный контент по доступным ценам.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Категории</h4>
+                    <ul>
+                        <li><a href="#">RPG</a></li>
+                        <li><a href="#">Шутеры</a></li>
+                        <li><a href="#">Стратегии</a></li>
+                        <li><a href="#">Приключения</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Поддержка</h4>
+                    <ul>
+                        <li><a href="#">Помощь</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#">Возврат</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Новостная рассылка</h4>
+                    <p>Подпишитесь, чтобы получать информацию о новых играх и скидках</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Ваш email">
+                        <button>Подписаться</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ShahliKey. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeAuthModal">&times;</span>
+            <h2 class="modal-title">Вход в аккаунт</h2>
+            <form id="authForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="submit-btn">Войти</button>
+            </form>
+            <p style="text-align: center; margin-top: 15px;">Нет аккаунта? <a href="#" id="switchToRegister">Зарегистрироваться</a></p>
+        </div>
+    </div>
+
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeRegisterModal">&times;</span>
+            <h2 class="modal-title">Регистрация</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="regName">Имя</label>
+                    <input type="text" id="regName" required>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Пароль</label>
+                    <input type="password" id="regPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="regConfirmPassword">Подтвердите пароль</label>
+                    <input type="password" id="regConfirmPassword" required>
+                </div>
+                <button type="submit" class="submit-btn">Зарегистрироваться</button>
+            </form>
+            <p style="text-align: center; margin-top: 15px;">Уже есть аккаунт? <a href="#" id="switchToLogin">Войти</a></p>
+        </div>
+    </div>
+
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeCartModal">&times;</span>
+            <h2 class="modal-title">Корзина</h2>
+            <div class="cart-items" id="cartItems">
+            </div>
+            <div class="cart-total">
+                <span>Итого:</span>
+                <span id="cartTotal">0 ₽</span>
+            </div>
+            <button class="submit-btn" id="checkoutBtn">Перейти к оплате</button>
+        </div>
+    </div>
+
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closePaymentModal">&times;</span>
+            <h2 class="modal-title">Оформление заказа</h2>
+            <form id="paymentForm">
+                <div class="form-group">
+                    <label for="cardNumber">Номер карты</label>
+                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiryDate">Срок действия</label>
+                        <input type="text" id="expiryDate" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" placeholder="123" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cardholder">Имя владельца</label>
+                    <input type="text" id="cardholder" required>
+                </div>
+                <div class="form-group">
+                    <label for="emailReceipt">Email для чека</label>
+                    <input type="email" id="emailReceipt" required>
+                </div>
+                <button type="submit" class="submit-btn">Оплатить <span id="paymentTotal">0 ₽</span></button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
